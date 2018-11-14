@@ -1,0 +1,59 @@
+package javasyllabus;
+/*
+//enum use: stored set of constants(do not change)
+
+enum months{january,february,march,april,june,july,august,septemper,october,november,december};
+
+public class Enum1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		//=======================method 1==================
+		months k[]=months.values();
+		for(months a:k)
+		{
+			System.out.println(a);
+		}		
+		//=======================or========================
+		for(months a:months.values())
+		{
+			System.out.println(a);
+		}
+		
+
+	}
+
+}*/
+//===========================enum constructor ==============================================
+
+//enum constructor
+
+enum pricefixed{pottukadalai(70),rice1(60),rice2(50),rice3(40),sugar(35);
+	
+	int p;
+	pricefixed(int k)
+	{
+		p=k;
+	}	
+	int disp()
+	{
+		return p;
+	}
+	
+};
+
+public class Enum1 {	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		pricefixed o=pricefixed.pottukadalai;
+		System.out.println(o.disp());
+		
+		pricefixed o2=pricefixed.sugar;
+		System.out.println(o2.disp());
+
+	}
+}
+
