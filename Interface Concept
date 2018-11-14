@@ -1,0 +1,30 @@
+interface Top
+{
+	void byke();;
+		
+}
+interface Bottom
+{
+	void cycle();
+}
+class Feature implements Top,Bottom
+{
+	public void byke() {
+		System.out.println("Extra feature update on byke");
+	}
+	public void cycle() {
+		System.out.println("Extra feature update on cycle");
+	}
+	}
+public class Inter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Feature s=new Feature();
+s.byke();
+s.cycle();
+	}
+
+}
+//Polymorphism is complied and runtime two type when the extends after the involked the implements 
+//interface in only for the intilaization not for the defined the class it has defined by the implements throw only.
