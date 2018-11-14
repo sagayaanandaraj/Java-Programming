@@ -1,0 +1,48 @@
+package javasyllabus;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class Localization1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+			
+			Date d1=new Date();
+			
+			Locale l1 =new Locale("fr","FR");
+									
+			DateFormat df=DateFormat.getDateInstance(DateFormat.SHORT, l1);
+			
+											// en US
+											// SHORT  09/20/18
+											// FULL   Thursday, Septemper, 20 2018
+											// MEDIUM or defatult sep 20, 2018
+										    // LONG  SEPTEMPER 20, 2018
+			
+											// zh ZH (Chinise)
+											// default: 2018-9-20
+											// short: 18-9-20
+											// LONG: 18?9?20
+			
+				
+			
+											
+			System.out.println(df.format(d1));
+
+			
+			/* Advance how to find all locale
+			 * 
+			 * 			Locale arr[]=DateFormat.getAvailableLocales();
+			 	System.out.println(arr.length);
+				for(Locale a1:arr)
+				{
+					System.out.println(a1);
+				}
+			 */
+	}
+
+}
