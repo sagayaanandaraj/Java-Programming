@@ -1,0 +1,53 @@
+package javasyllabus;
+
+import java.util.HashSet;
+import java.util.Iterator;
+class AnandSudhan
+{
+	String name;
+	int mark;
+	public AnandSudhan(String name,int mark)
+	{
+		this.name=name;
+		this.mark=mark;
+	}
+	
+}
+public class HashSetAdvance {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AnandSudhan ob1=new AnandSudhan("anand",95);
+		AnandSudhan ob2=new AnandSudhan("sudhan",92);
+		AnandSudhan ob3=new AnandSudhan("gowtham",91);
+		
+		HashSet<AnandSudhan> hs1=new HashSet<AnandSudhan>();
+		
+		hs1.add(ob1);
+		hs1.add(ob2);
+		hs1.add(ob3);
+		
+		System.out.println(hs1.size());
+		
+		System.out.println(hs1);
+		
+		//hs1.remove(ob2);
+		
+		System.out.println(hs1.size());
+		
+		//hs1.clear();
+		
+	   Iterator<AnandSudhan> i1=hs1.iterator();
+		
+	   while(i1.hasNext())
+	   {
+		   AnandSudhan o=i1.next();
+		   System.out.println(o.name + "  "+ o.mark);
+	   }
+		
+		
+		
+		
+	}
+
+}
