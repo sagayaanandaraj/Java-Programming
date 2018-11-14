@@ -1,0 +1,34 @@
+package javasyllabus;
+
+//==========================================================Generic Method =================================
+class sakthi
+{
+	<M> void display(M a)   // this is generic method
+	{
+		System.out.println(a);
+	}
+}
+public class GenericMethod1 {
+	public static void main(String[] args) {
+			sakthi ob1=new sakthi();
+			ob1.display(23);
+			ob1.display(23.234f);
+			ob1.display(23.23);
+			ob1.display("gowthaman");	
+	}
+}
+
+/* syntax generic method 
+
+	access specifier <Generic Method Name>  returntype methodname(arg)
+{
+
+}
+ex:
+	public <M> M dis(M ob)
+	{
+		retrun ob+2;
+	}
+
+
+*/
