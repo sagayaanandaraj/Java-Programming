@@ -1,0 +1,252 @@
+
+package innerjoin;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+
+
+import javax.swing.ListSelectionModel;
+import javax.swing.border.BevelBorder;
+import java.awt.Color;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
+
+import javax.swing.JLabel;
+import com.toedter.calendar.JDateChooser;
+
+public class join {
+
+	private JFrame frame;
+	private JTable jtable_Display;
+	int count=0,count1=0;
+	int abs=0,abs1=0;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+String startdates=null;
+String enddates=null;
+private JTextField start;
+private JTextField end;
+private JButton btnSet;
+private JButton btnLoadset;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					join window = new join();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public join() {
+		initialize();
+		show_user();
+	}
+	  public ArrayList<User> userList()
+	     {
+	    	 ArrayList<User> userList =new ArrayList<>();
+	    	 try {
+	    	 String str="select u.sno,u.name,u.course,p.attendance,p.date from \r\n" + 
+	    	 		"user u join presents p on\r\n" + 
+	    	 		"u.sno=p.sno where p.date between '1-1-18' and '3-1-18' order by sno asc;";
+			 
+			 Class.forName("org.h2.Driver");
+			 Connection con=DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test","sa","");
+			 Statement stm=con.createStatement();
+			 
+			 ResultSet rs=stm.executeQuery(str);
+			 User user;
+			 while(rs.next())
+			 {
+				 user=new User(rs.getInt("sno"),rs.getString("name"),rs.getString("course"),rs.getNString("attendance"),rs.getString("date"));
+				 userList.add(user);
+						 
+			 }
+	    	 }
+	    	 catch(Exception e)
+	    	 {
+	    		 JOptionPane.showMessageDialog(null, e);
+	    	 }
+			return userList;
+	    	 
+	     }
+	     public void show_user()
+	     {
+	    	 ArrayList<User> list=userList();
+	    	 DefaultTableModel model=(DefaultTableModel)jtable_Display.getModel();
+	    	 Object[] row=new Object[5];
+	    	 for(int i=0;i<list.size();i++)
+	    	 {
+	    		 row[0] =list.get(i).getsno();
+	    		 row[1]=list.get(i).getname();
+	    		 row[2]=list.get(i).getcourse();
+	    		 row[3]=list.get(i).getattendance();
+	    		 row[4]=list.get(i).getdate();
+	    	
+	    		 model.addRow(row);
+	    		 
+	    	 }
+	     }
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 564, 419);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(33, 11, 438, 275);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 377, 236);
+		panel.add(scrollPane);
+		
+		jtable_Display = new JTable();
+		jtable_Display.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"sno", "name", "course","attendance","date"
+			}
+		));
+		scrollPane.setViewportView(jtable_Display);
+		
+		JButton btnLoad = new JButton("load");
+		btnLoad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+			    	 String str="select u.sno,u.name,u.course,p.attendance,p.date from \r\n" + 
+			    	 		"user u join presents p on\r\n" + 
+			    	 		"u.sno=p.sno where p.date between '1-1-18' and '3-1-18' order by sno asc;";
+					 
+					 Class.forName("org.h2.Driver");
+					 Connection con=DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test","sa","");
+					 Statement stm=con.createStatement();
+					 
+					 ResultSet rs=stm.executeQuery(str);
+					 while(rs.next())
+					 {
+						 if(rs.getInt("sno")==Integer.parseInt(textField.getText()) && rs.getString("attendance").equals("present"))
+						 {
+							 count1++;
+						 }
+						 if(rs.getInt("sno")==Integer.parseInt(textField.getText()) && rs.getString("attendance").equals("absent"))
+						 {
+							 abs1++;
+						 }
+								 
+					 }	
+					 textField_1.setText(""+count1);
+					 textField_2.setText(""+abs1);
+					 count1=0;
+					 abs1=0;
+				}
+					 catch(Exception e)
+			    	 {
+			    		 JOptionPane.showMessageDialog(null, e);
+			    	 }
+			}
+		});
+		btnLoad.setBounds(240, 336, 89, 23);
+		frame.getContentPane().add(btnLoad);
+		
+		textField = new JTextField();
+		textField.setBounds(33, 297, 86, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(210, 297, 86, 20);
+		frame.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(385, 297, 86, 20);
+		frame.getContentPane().add(textField_2);
+		textField_2.setColumns(10);
+		
+		
+	}
+}
+
+========================================
+User.java
+
+package innerjoin;
+
+public class User {
+	 private int sno;
+	 private String name,course,attendance,date;
+	 
+	public User(int sno,String name,String course,String attendance,String date)
+	 {
+		 this.sno=sno;
+		 this.name=name;
+		 this.course=course;
+		 this.attendance=attendance;
+		 this.date=date;
+		 
+	 }
+	public int getsno()
+	 {
+		 return sno;
+	 }
+	 public String getname()
+	 {
+		 return name;
+	 }
+	 public String getcourse()
+	 {
+		 return course;
+	 }
+	 public String getattendance()
+	 {
+		 return attendance;
+	 }
+	 public String getdate()
+	 {
+		 return date;
+	 }
+	
+	}
