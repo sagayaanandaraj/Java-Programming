@@ -1,0 +1,101 @@
+package javapart2;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class Palindrome implements ActionListener {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+	JButton btnAnswer;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Palindrome window = new Palindrome();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Palindrome() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblPalindrome = new JLabel("palindrome");
+		lblPalindrome.setBounds(140, 33, 131, 14);
+		frame.getContentPane().add(lblPalindrome);
+		
+		JLabel lblEnterTheText = new JLabel("Enter the text");
+		lblEnterTheText.setBounds(56, 86, 46, 14);
+		frame.getContentPane().add(lblEnterTheText);
+		
+		textField = new JTextField();
+		textField.setBounds(136, 83, 86, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(136, 140, 86, 20);
+		frame.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		btnAnswer = new JButton("Answer");
+		btnAnswer.setBounds(37, 139, 89, 23);
+		frame.getContentPane().add(btnAnswer);
+		//user
+		btnAnswer.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String a=textField.getText();
+		String b="";
+		String c="";
+		//System.out.println(a.charAt(2));
+		int f=a.length();
+		for(int i=0;i<a.length();i++) {
+			b=b+a.charAt(i);
+		}
+		
+		for(int i=f-1;i>-1;i--) {
+			c=c+a.charAt(i);
+		}
+	   if(a.equalsIgnoreCase(c))
+	   {
+		   textField_1.setText("Palindrome");
+	   }
+	   else
+		   textField_1.setText("Not Palindrome");
+	
+	}
+
+}
