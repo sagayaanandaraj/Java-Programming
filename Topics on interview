@@ -1,0 +1,253 @@
+Integer into Binary
+
+package interviewquestion;
+import java.lang.Math;
+public class binary {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int a=10;
+int b=0;
+int c;
+
+System.out.println("Binary is " + Integer.toBinaryString(a));
+	}
+}
+
+Number of duplicated in the String
+==================================================
+
+package interviewquestion;
+
+import java.util.Scanner;
+
+public class duplicated {
+
+	public static void main(String[] args) {
+ 		// TODO Auto-generated method stub
+		Scanner scan=new Scanner (System.in);
+		int count=0;
+		int c=0;
+		System.out.println("enter the string");
+		String para=scan.nextLine();
+		System.out.println(para);
+		for(int i=0;i<para.length();i++)
+		{
+			if(para.charAt(i)=='a')
+			{
+				count++;
+			}
+		}
+		System.out.println(count);
+		for(int i=0;i<para.length();i++)
+		{
+			for(int j=1;j<para.length();j++)
+			{
+			if(para.charAt(i)==para.charAt(j))
+			{
+				c++;
+			}
+			}
+		}
+		c=c/count;
+		
+		System.out.println("repeated value"+c);
+	}
+
+}
+=========================================
+another method
+
+
+import java.util.Scanner;
+
+public class DuplStr {
+
+	public static void main(String[] args) {
+	
+			  //String str = "w3schools";
+		Scanner scan=new Scanner (System.in);
+		System.out.println("enter the string");
+		String str=scan.nextLine();
+			  int cnt = 0;
+			  char[] inp = str.toCharArray();
+			  System.out.println("Duplicate Characters are:");
+			  for (int i = 0; i < str.length(); i++) {
+			   for (int j = i + 1; j < str.length(); j++) {
+			    if (inp[i] == inp[j]) {
+			     System.out.println(inp[j]);
+			     cnt++;
+			     break;
+			    }
+			   }
+			  }
+			 
+	==================================================
+  List of detail in array 
+  
+  package interviewquestion;
+
+public class Listarray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a[]= {10,30,49,89,37};
+		int t;
+		int n=a.length;
+		for(int i=0;i<a.length;i++)
+		{
+			for(int j=0;j<a.length;j++)
+				{
+					if(a[i]<a[j])
+					{
+						t=a[i];
+						a[i]=a[j];
+						a[j]=t;
+					}
+				}
+			}
+			for(int i=0;i<a.length;i++) {
+			System.out.println(a[i]);}
+		System.out.println("lowest value"+a[0]);
+		System.out.println("highest value"+a[n-1]);
+		for(int i=0;i<a.length;i++)
+		{
+			if(a[i]%2==0)
+			{
+				System.out.println("even number are:"+a[i]);
+			}
+			else
+			{
+				System.out.println("odd number are:"+a[i]);
+			}
+		}
+		
+
+	}
+
+}
+======================================================
+remove the space in the string 
+
+package interviewquestion;
+
+import java.util.Scanner;
+
+public class remove {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner scan=new Scanner (System.in);
+		System.out.println("enter the string");
+		String para=scan.nextLine();
+		String a="";
+		for(int i=0;i<para.length();i++)
+		{
+			if(para.charAt(i)!=' ')
+			{
+				a=a+para.charAt(i);
+			}
+		}
+		System.out.println(a);
+	}
+	
+
+}
+
+====================================
+special character in the string 
+
+package interviewquestion;
+
+public class special {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+String str = "Sagaya,Anand-39388";
+char ch;
+int c=0;
+int uppercase=0,lowercase=0;
+for(int i=0;i<str.length();i++)
+{
+    ch = str.charAt(i);
+    int asciivalue = (int)ch;
+    if(asciivalue >=65 && asciivalue <=90){
+        uppercase++;
+    }
+    else if(asciivalue >=97 && asciivalue <=122){
+        lowercase++;
+    }
+    if(str.charAt(i)==','|| str.charAt(i)=='-')
+	{
+		c++;
+	}
+}
+System.out.println("No of lowercase letter : " + lowercase);
+System.out.println("No of uppercase letter : " + uppercase);
+System.out.println("No of special character: "+c);
+int b=str.length()-uppercase-lowercase-c++;
+System.out.println("No of number in: "+b);
+	}
+
+}
+
+
+=======================================
+string repeated
+
+package interviewquestion;
+import java.util.*; 
+public class StringRepeated {
+
+	public static void main(String[] args) {
+		Scanner scan=new Scanner (System.in);
+		System.out.print("enter the array size");
+		int size=scan.nextInt();
+		int a[]=new int [size];
+		int len;
+		int t;
+		int count=0;
+		len=a.length;
+for(int i=0;i<len;i++)
+{
+	System.out.println("enter the array value "+i+":");
+	a[i]=scan.nextInt();
+}
+System.out.println("resulting array");
+for(int i=0;i<len;i++)
+{
+	System.out.println("output of array value "+a[i]);
+}
+	for(int i=0;i<len;i++)
+	{
+		for(int j=0;j<len;j++)
+		{
+			if(a[i]<a[j])
+			{
+				t=a[i];
+				a[i]=a[j];
+				a[j]=t;
+			}
+		}
+	}
+	for(int i=0;i<len;i++)
+	{
+		System.out.println("ascending of array value "+a[i]);
+	}
+	  for(int i = 0; i < len; i++) {
+		    for(int j = i+1; j < len; j++) {
+		      if(a[i] == a[j]) {
+		        System.out.println("duplicated number for the two "+a[i]);
+		 count++;
+		 }
+		    }
+		  
+		}
+	
+	System.out.println(count);
+
+	}
+
+}
