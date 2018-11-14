@@ -1,0 +1,79 @@
+package corejava;
+
+public class string {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     String t="Niit-karur";
+     int l=t.length();
+     System.out.println("length of text:"+l);
+     System.out.println("all caps :"+t.toUpperCase());
+     System.out.println("small :"+t.toLowerCase());
+     System.out.println("character position :"+t.charAt(4));
+     System.out.println("Index :"+t.indexOf("ru"));
+     System.out.println("last index :"+t.lastIndexOf("r"));
+     System.out.println("Substring :"+t.substring(5));
+     System.out.println("substring two argument  :"+t.substring(3,7));
+     
+     String t1="  wel come    ";
+     System.out.println("before trim:"+t1.length());  
+     t1=t1.trim();
+     System.out.println("after trim:"+t1.length());
+     t1=t1.replace(" ", "");
+     System.out.println("after replace  :"+t1.length());
+     System.out.println("after replace  :"+t.length());
+     String t2="Welcome";
+     boolean res=t1.equals(t2);
+     System.out.println("equal or not :"+res);
+     boolean res1=t1.equalsIgnoreCase(t2);
+     System.out.println("equal or not  :"+res1);
+     int cmp=t1.compareTo(t2);
+     System.out.println("compare res:"+cmp);
+     int cmp1=t1.compareToIgnoreCase(t2);
+     System.out.println("comapare:"+cmp1);
+     String w="W";
+     System.out.println("Ascii value " +w.hashCode());
+     
+     
+     String a="34";
+     String b="44";
+     
+     int c=Integer.parseInt(a)+Integer.parseInt(b);
+     System.out.println("String to number "+c);
+     
+     int e=55;
+     int f=66;
+     /*String g=""+e+f;
+     System.out.print("G value is "+g);*/
+     String g=String.valueOf(e) + String.valueOf(f);
+     System.out.println("number to string "+g);
+     
+     
+     System.out.println(""+2+2); //22
+     System.out.println(2+2+""); //4
+     System.out.println(2+""+2); //22
+     
+     
+     int ar=65;
+     System.out.println((char)ar);
+     System.out.println("start with:"+t.startsWith("we"));
+     System.out.println("start with:"+t.startsWith("Ni"));
+     
+     System.out.println("end with:"+t.endsWith("rur"));
+     System.out.println("start with:"+t.endsWith("RUR"));
+     
+     System.out.println("contain or not "+t.contains("Niit"))
+     
+	}
+
+	private string trim() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private String length() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
