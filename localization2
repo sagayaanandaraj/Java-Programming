@@ -1,0 +1,40 @@
+package javasyllabus;
+
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class Localization2_Time {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+/*Date d1=new Date();
+		
+		Locale l1 =new Locale("fr","FR");
+								
+		DateFormat df=DateFormat.getDateInstance(DateFormat.SHORT, l1);
+		
+		String ans=df.format(d1);
+		System.out.println(ans);
+		*/
+		// or single line
+		//System.out.println(DateFormat.getDateInstance(DateFormat.FULL,new Locale("en","US")).format(new Date()));
+		
+		Date d1=new Date();
+		Locale l1 =new Locale("en","CA");
+		DateFormat df=DateFormat.getTimeInstance(DateFormat.FULL, l1);
+		String ans=df.format(d1);
+		System.out.println(ans);
+		
+    // get currency instance 
+	
+		//NumberFormat nf=NumberFormat.getCurrencyInstance(l1);
+		NumberFormat nf=NumberFormat.getCurrencyInstance(new Locale("en","IN"));
+		String cur=nf.format(12.56);
+		System.out.println(cur);
+		
+	}
+
+}
