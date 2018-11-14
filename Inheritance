@@ -1,0 +1,89 @@
+Mutliple inheritance
+=============================================================
+class Three
+{
+	void dis()
+	{
+		System.out.println("Grandfather");
+	}
+}
+class Two extends Three{
+	void dis()
+	{ super.dis();
+		System.out.println("father");
+	}
+}
+class One extends Two{
+	void dis()
+	{
+		super.dis();
+		System.out.println("Son");
+	}
+}
+public class Multi {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+One s1=new One();
+s1.dis();
+	}
+}
+==============================================
+Single inheritance
+
+
+class Father
+{
+	void dis2()
+	{
+		System.out.println("base class father");
+	}
+	}
+class Son extends Father 
+{
+	void dis()
+	{
+		System.out.println("derived class son");
+		
+	}
+	}
+public class Single {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+ Son s=new Son();
+ s.dis();
+ s.dis2();
+	}
+  
+  
+================================
+Super function
+
+class A
+{
+	void dis()
+	{
+		System.out.println("base class father");
+	}
+	}
+class B extends A 
+{
+	void dis()
+	{
+		super.dis();
+		System.out.println("derived class son");
+		
+	}
+	}
+public class Superfunc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+B s=new B();
+s.dis();
+	}
+
+}
+
+}
