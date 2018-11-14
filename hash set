@@ -1,0 +1,80 @@
+package javasyllabus;
+/*
+collections:
+===============
+
+Set - HashSet,TreeSet
+List - ArrayList,LinkedList,Vector
+Map-HashMap,TreeMap,HashTable
+Deque-ArrayDeque
+=======================
+*/
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class HashSet1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	HashSet<String> hs=new HashSet<String>();
+		
+		hs.add("monish");
+		hs.add("sathis");
+		hs.add("monish");
+		hs.add("abi");
+		hs.add("sudhan");
+		hs.add("gowhaman");
+		hs.add("damu");
+		hs.add("sudhan");
+		System.out.println("hashset");
+		System.out.println(hs);
+	
+		TreeSet<String> ts=new TreeSet<String>();
+		
+		ts.add("monish");
+		ts.add("sudhan");
+		ts.add("gowhaman");
+		ts.add("monish");
+		ts.add("sudhan");
+		ts.add("abi");
+		ts.add("damu");
+		ts.add("sathis");
+		System.out.println("Treeset");
+		System.out.println(ts);
+		TreeSet<Number> ts1=new TreeSet<Number>();
+		ts1.add(34);
+		ts1.add(44);
+		ts1.add(14);
+		ts1.add(24);
+		ts1.add(14);
+		ts1.add(24);
+		ts1.add(53);
+		
+		
+		System.out.println(ts1);
+	
+	
+		System.out.println(hs.size());
+		System.out.println(ts.size());
+		System.out.println(ts1.size());
+		
+		ts1.clear();
+		
+		System.out.println(ts1.size());
+		
+		if(hs.remove("abi"))
+		{
+			System.out.println("successfully removed abi");
+		}
+		else
+		{
+			System.out.println("not removed abi");
+		}
+		
+		System.out.println(hs.size());
+		System.out.println(hs);
+		
+		}
+	
+	}
