@@ -1,0 +1,85 @@
+Prgm1
+
+package FrameDetails;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.*;
+
+class Prg extends JFrame {
+	
+	public Prg()
+	{
+		JTextField textField;
+		JButton b = new JButton("Add");
+		
+		final JFrame o=new JFrame();
+		//b.setBounds(200, 100, 200, 500);
+		o.setVisible(true);
+		o.setSize(400, 500);
+		o.setLayout(null);
+		o.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		o.getContentPane().add(b);
+		
+	
+		b.setVisible(true);
+		b.setLayout(null);
+		b.setBounds(150,200, 60, 30);
+		
+		o.add(b);
+		b.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						// TODO Auto-generated method stub
+						o.dispose();
+						new Prg2();
+					}
+		}
+				);
+
+	}
+}
+public class Prgm1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Prg o1 =new Prg();
+           
+	}
+
+}
+===========================================================
+Prgm2
+package FrameDetails;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+class Prg2{
+	
+	public Prg2() {
+		
+		JFrame o=new JFrame();
+		JButton b=new JButton("Sub");
+		o.setVisible(true);
+		b.setVisible(true);
+		o.setLayout(null);
+		b.setLayout(null);
+		o.setSize(400, 500);
+		b.setBounds(150, 200,70,70);
+		o.getContentPane().add(b);
+		
+		
+		
+	}
+}
+public class Prgm2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			Prg2 s=new Prg2();
+	}
+
+}
